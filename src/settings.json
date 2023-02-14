@@ -1,0 +1,13 @@
+{
+  "config": {
+    "address": "",
+    "port": 8080,
+    "auth": {
+      "username": "",
+      "password": ""
+    },
+    "filters": [],
+    "surround_year_with_parentheses": true,
+    "format": "{title}{br}{h:m:s}/{h:m:s-length}"
+  }
+}

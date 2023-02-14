@@ -1,0 +1,39 @@
+{
+  "name": "vlc-obs-overlay-tool",
+  "version": "1.0.0",
+  "description": "A VLC Utility to show current title and runtime of the media you're playing for OBS.",
+  "main": "main.js",
+  "scripts": {
+    "make": "electron-packager . --platform=win32 --arch=x64 --icon=icon.ico",
+    "build": "electron-builder"
+  },
+  "author": "large BIG snooze",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "node-modules": "^0.0.1",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "electron-builder": "^23.6.0",
+    "electron": "^23.0.0",
+    "eslint": "^8.34.0"
+  },
+  "build": {
+    "productName": "OBS VLC - Runtime Overlay",
+    "appId": "com.largebigsnooze.vlc-obs-overlay-tool",
+    "icon": "src/icons/icon.png",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "!node_modules/electron-*",
+      "!node_modules/electron-packager/",
+      "!.eslintrc.json",
+      "!package-lock.json",
+      "!icon.ico",
+      "!README.md"
+    ],
+    "asar": false
+}
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>How to get started</title>
+</head>
+
+<body>
+    <h1>OBS VLC - Movie Runtime Overlay</h1>
+    <h2 id="movie-file">🚀 Quickstart</h2>
+    <div class="medium-container">
+        <a href="#vlc-config">1. VLC Configuration</a>
+        <a href="#obs-config">2. OBS Configuration</a>
+        <a href="#filters">3. Filters</a>
+        <a href="#formatting">4. Formatting</a>
+    </div>
+    <h2><img src="../icons/vlc.png" width="30" class="icon" id="vlc-config">VLC Configuration</h2>
+    <ol>
+        <li>Go to <b>Preferences</b> in <b>VLC</b></li>
+        <img src="../icons/VLC-1.png" class="images">
+        <li>Check <b>all</b> on <b>Show settings</b></li>
+        <img src="../icons/VLC-2.png" class="images">
+        <li>Go to <b>Main interfaces</b> and check <b>Web</b></li>
+        <img src="../icons/VLC-2.5.png" class="images">
+        <li>Set your <b>Host</b>, <b>Password</b> and <b>Port</b> in the fields indicated below.</li>
+        <img src="../icons/VLC-3.png" class="images">
+        <div class="blue-note">
+            Make sure the <code>host</code>, <code>port</code> and <code>password</code> coincides with the <code>settings.json</code> file.
+            <img src="../icons/auth.png" class="images">
+        </div>
+    </ol>
+    <h2><img src="../icons/obs.png" width="30" class="icon" id="obs-config">OBS Configuration</h2>
+    <ol>
+        <li>Add a <b>Text Source</b> and double click it</li>
+        <img src="../icons/OBS-Tutorial.png" width="65%" class="images">
+        <li>Check the <b>Read from file</b> box and click <b>Browse</b></li>
+        <img src="../icons/OBS-Tutorial-2.png" width="80%" class="images">
+        <li>Select the <code>movie.txt</code> file in the <code>logs/</code> directory.</li>
+        <img src="../icons/OBS-Tutorial-5.png" width="75%" class="images">
+        <img src="../icons/OBS-Tutorial-3.png" width="75%" class="images">
+        <img src="../icons/OBS-Tutorial-4.png" width="75%" class="images">
+    </ol>
+    <h2 id="filters">✨ Filters</h2>
+    <p>Elements within the <code><b>filter</b></code> array allows you to remove any unnecessary text.</p>
+    <pre>"filters": [
+    ".",
+    "mp4",
+    "BluRay",
+    "BrRip",
+    "x264",
+    "EXTENDED",
+    "1080p",
+    "2160p",
+    ...
+]</pre>
+    <h2 id="formatting">🔧 Formatting</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="text-align:left">Tag</th>
+                <th style="text-align:left">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="text-align:left"><strong><code>{title}</code></strong></td>
+                <td style="text-align:left">the title of the current movie</td>
+            </tr>
+            <tr>
+                <td style="text-align:left"><strong><code>{h:m:s}</code></strong></td>
+                <td style="text-align:left">shows media runtime formatted as <b>HH:MM:SS</b></td>
+            </tr>
+            <tr>
+                <td style="text-align:left"><strong><code>{h:m:s-length}</code></strong></td>
+                <td style="text-align:left">shows media length formatted as <b>HH:MM:SS</b></td>
+            </tr>
+            <tr>
+                <td style="text-align:left"><strong><code>{br}</code></strong></td>
+                <td style="text-align:left">triggers a breakline at current position</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <img src="../icons/Screenshot_1.png" class="images">
+    <button id="goUp">Scroll to top</button>
+</body>
+<script>
+    const scrollUpButton = document.getElementById("goUp");
+
+    const showScroll = document.getElementById('vlc-config');
+
+    window.onscroll = function () {
+        if (document.body.scrollTop > 211.78125 || document.documentElement.scrollTop > 211.78125) {
+            scrollUpButton.style.opacity = "1"
+            scrollUpButton.style.pointerEvents = 'all'
+        } else {
+            scrollUpButton.style.opacity = "0"
+            scrollUpButton.style.pointerEvents = 'none'
+        }
+    }
+
+    scrollUpButton.onclick = function () {
+        document.body.scrollTop = 0
+        document.documentElement.scrollTop = 0
+    }
+
+</script>
+
+</html>
